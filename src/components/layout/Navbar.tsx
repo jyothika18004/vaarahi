@@ -1,3 +1,4 @@
+import logo from '../../assets/logo.png';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User, Droplets } from 'lucide-react';
@@ -15,15 +16,13 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <nav className="fixed w-full z-50 bg-[#001F3F] shadow-lg border-b border-[#0077B6]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-2">
-                        <Droplets className="h-8 w-8 text-primary-600" />
-                        <span className="text-2xl font-bold bg-gradient-to-r from-primary-700 to-primary-500 bg-clip-text text-transparent">
-                            Varahi Waters
-                        </span>
+                        <img src={logo} alt="Vaarahi Logo" className="h-12 w-auto object-contain "/>
+
                     </Link>
 
                     {/* Desktop Nav */}
@@ -32,7 +31,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+                                className="text-white font-medium transition duration-300 hover:text-[#D4AF37]"
                             >
                                 {link.name}
                             </Link>
@@ -41,12 +40,12 @@ const Navbar = () => {
 
                     {/* Actions */}
                     <div className="hidden md:flex items-center space-x-6">
-                        <Link to="/auth" className="text-gray-600 hover:text-primary-600">
+                        <Link to="/auth" className="text-white hover:text-accent transition">
                             <User className="h-6 w-6" />
                         </Link>
-                        <Link to="/checkout" className="relative text-gray-600 hover:text-primary-600">
+                        <Link to="/checkout" className="relative text-white hover:text-accent transition">
                             <ShoppingCart className="h-6 w-6" />
-                            <span className="absolute -top-2 -right-2 bg-primary-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                            <span className="absolute -top-2 -right-2 bg-accent text-primary text-xs font-bold rounded-full h-5 w-5 flex items-center shadow-md">
                                 0
                             </span>
                         </Link>
@@ -56,7 +55,7 @@ const Navbar = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-600 hover:text-primary-600 focus:outline-none"
+                            className="p-2 rounded-md text-white hover:text-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#0077B6] transition"
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
@@ -71,7 +70,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+                        className="md:hidden bg-primary border-t border-secondary overflow-hidden"
                     >
                         <div className="px-4 pt-2 pb-6 space-y-2">
                             {navLinks.map((link) => (
@@ -79,12 +78,12 @@ const Navbar = () => {
                                     key={link.name}
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
-                                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md"
+                                    className="block px-3 py-2 text-white font-medium hover:text-accent hover:bg-secondary rounded-md transition"
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <div className="pt-4 flex items-center space-x-4 px-3">
+                            <div className="pt-4 flex items-center space-x-2 px-3 text-white">
                                 <Link to="/checkout" onClick={() => setIsOpen(false)} className="flex items-center space-x-2 text-gray-600">
                                     <ShoppingCart className="h-5 w-5" />
                                     <span>Cart (0)</span>

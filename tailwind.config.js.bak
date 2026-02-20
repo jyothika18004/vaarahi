@@ -8,13 +8,25 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          900: '#164e63',
+          DEFAULT: '#001F3F',   // Deep Navy
+          50: '#e6ecf3',
+          100: '#ccd9e7',
+          500: '#001F3F',
+          700: '#001633',
+          900: '#000d1f',
         },
+        secondary: {
+          DEFAULT: '#0077B6',   // Azure Water
+          500: '#0077B6',
+          600: '#005f91',
+          700: '#00486d',
+        },
+        accent: {
+          DEFAULT: '#D4AF37',   // Golden Sun
+          500: '#D4AF37',
+          600: '#b9972f',
+        },
+        background: '#F0F8FF',  // Mist White
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
