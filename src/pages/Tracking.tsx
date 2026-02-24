@@ -1,9 +1,13 @@
-
+import SEO from '../components/common/SEO';
 
 const Tracking = () => {
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">Track Your Order</h1>
+        <div className="container mx-auto px-4 py-32">
+            <SEO
+                title="Track Your Order"
+                description="Keep track of your Vaaraahi Waters delivery in real-time. Enter your order ID to see the status of your premium hydration."
+            />
+            <h1 className="text-4xl font-bold text-primary-900 mb-8">Order Tracking</h1>
             <div className="max-w-xl mx-auto">
                 <div className="flex space-x-2">
                     <input

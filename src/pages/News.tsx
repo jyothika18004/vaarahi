@@ -1,9 +1,15 @@
 
+import SEO from '../components/common/SEO';
+
 
 const News = () => {
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">News & Updates</h1>
+        <div className="container mx-auto px-4 py-32">
+            <SEO
+                title="Latest News & Updates"
+                description="Stay updated with the latest news, events, and announcements from Vaaraahi Waters. Follow our journey in providing premium hydration."
+            />
+            <h1 className="text-4xl font-bold text-primary-900 mb-8">Latest News</h1>
             <div className="space-y-6">
                 <article className="border-b pb-6">
                     <h2 className="text-2xl font-semibold mb-2 hover:text-primary-600 cursor-pointer">Varahi Waters Expands to New Region</h2>
