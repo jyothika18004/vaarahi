@@ -1,67 +1,129 @@
 import { Link } from 'react-router-dom';
-import { Droplets, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-white pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-                    {/* Brand */}
-                    <div className="space-y-4">
-                        <div className="flex items-center space-x-2">
-                            <Droplets className="h-8 w-8 text-primary-400" />
-                            <span className="text-2xl font-bold">Varahi Waters</span>
-                        </div>
-                        <p className="text-gray-400 text-sm">
-                            Pure, refreshing hydration delivered to your doorstep. Experience the taste of purity with every drop.
+        <footer className="bg-black/40 text-white pt-32 pb-12 border-t border-white/5 backdrop-blur-3xl relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-cyan-500/5 blur-[120px] rounded-full -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
+
+                    {/* Brand Identity */}
+                    <div className="space-y-8 lg:col-span-1">
+                        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="inline-block group">
+                            <img
+                                src={logo}
+                                alt="Chaamundeshwari Logo"
+                                className="h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-transform duration-500 group-hover:scale-110"
+                            />
+                        </Link>
+                        <p className="text-cyan-100/40 text-sm font-bold leading-tight uppercase tracking-tight italic">
+                            Redefining the standard of hydration. Clinical-grade purity, mineral-rich balance, and elite service for a healthier tomorrow.
                         </p>
+                        <div className="flex space-x-4">
+                            {[Facebook, Instagram, Twitter].map((Icon, i) => (
+                                <a key={i} href="#" className="p-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all group">
+                                    <Icon className="h-5 w-5 text-white/60 group-hover:text-cyan-400 group-hover:scale-110 transition-all" />
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul className="space-y-2 text-gray-400">
-                            <li><Link to="/" className="hover:text-primary-400 transition-colors">Home</Link></li>
-                            <li><Link to="/products" className="hover:text-primary-400 transition-colors">Products</Link></li>
-                            <li><Link to="/tracking" className="hover:text-primary-400 transition-colors">Track Order</Link></li>
-                            <li><Link to="/locations" className="hover:text-primary-400 transition-colors">Locations</Link></li>
+                    {/* Quick Access */}
+                    <div className="lg:pl-12">
+                        <h3 className="text-white font-black text-xs uppercase tracking-[0.4em] mb-8 italic">Navigation</h3>
+                        <ul className="space-y-4">
+                            {[
+                                { name: 'Home', path: '/' },
+                                { name: 'Elite Collection', path: '/products' },
+                                { name: 'Our Identity', path: '/about' },
+                                { name: 'Awards & Tech', path: '/awards' }
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link to={link.path} className="text-cyan-100/40 hover:text-cyan-400 font-bold text-sm uppercase tracking-widest transition-colors flex items-center group">
+                                        <div className="w-0 group-hover:w-4 h-px bg-cyan-400 mr-0 group-hover:mr-3 transition-all duration-300" />
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Support */}
+                    {/* Support & Legal */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-4">Support</h3>
-                        <ul className="space-y-2 text-gray-400">
-                            <li><Link to="/faq" className="hover:text-primary-400 transition-colors">FAQ</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary-400 transition-colors">Contact Us</Link></li>
-                            <li><Link to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
-                            <li><Link to="/terms" className="hover:text-primary-400 transition-colors">Terms of Service</Link></li>
+                        <h3 className="text-white font-black text-xs uppercase tracking-[0.4em] mb-8 italic">Standard</h3>
+                        <ul className="space-y-4">
+                            {[
+                                { name: 'Quality Protocols', path: '/about' },
+                                { name: 'Partner With Us', path: '/about' },
+                                { name: 'Privacy Policy', path: '/privacy' },
+                                { name: 'Terms of Service', path: '/terms' }
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link to={link.path} className="text-cyan-100/40 hover:text-cyan-400 font-bold text-sm uppercase tracking-widest transition-colors flex items-center group">
+                                        <div className="w-0 group-hover:w-4 h-px bg-cyan-400 mr-0 group-hover:mr-3 transition-all duration-300" />
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Contact */}
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Connect</h3>
-                        <div className="flex space-x-4 mb-6">
-                            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-primary-600 transition-colors">
-                                <Facebook className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-primary-600 transition-colors">
-                                <Instagram className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-primary-600 transition-colors">
-                                <Twitter className="h-5 w-5" />
-                            </a>
+                    {/* Direct Contact */}
+                    <div className="space-y-8">
+                        <div>
+                            <h3 className="text-white font-black text-xs uppercase tracking-[0.4em] mb-8 italic">Contact Info</h3>
+                            <div className="space-y-6">
+                                <div className="flex items-start space-x-4 group">
+                                    <div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-cyan-500/30 transition-colors">
+                                        <Phone className="h-4 w-4 text-cyan-400" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-widest mb-1">Elite Line</p>
+                                        <p className="text-white font-black text-sm">+91 9492266645</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-4 group">
+                                    <div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-cyan-500/30 transition-colors">
+                                        <Mail className="h-4 w-4 text-cyan-400" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-widest mb-1">Official Inquiry</p>
+                                        <p className="text-white font-black text-sm uppercase">Care@Chaamundeshwari.com</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-4 group">
+                                    <div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-cyan-500/30 transition-colors">
+                                        <MapPin className="h-4 w-4 text-cyan-400" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-widest mb-1">Service Region</p>
+                                        <p className="text-white font-black text-sm uppercase">Hyderabad IT Corridor, TS</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p className="text-gray-400 text-sm">
-                            Call Us: +91 98765 43210<br />
-                            Email: hello@varahiwaters.com
-                        </p>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                    &copy; {new Date().getFullYear()} Varahi Waters. All rights reserved.
+                {/* Bottom Bar */}
+                <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center bg-black/5 p-6 rounded-[2rem] border border-white/5">
+                    <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">
+                        &copy; {new Date().getFullYear()} Chaamundeshwari Water Private Limited. Pure Precision.
+                    </p>
+                    <div className="flex items-center space-x-8 mt-4 md:mt-0">
+                        <div className="flex items-center space-x-2">
+                            <div className="h-1 w-1 bg-cyan-500 rounded-full animate-pulse" />
+                            <span className="text-[9px] font-black text-cyan-400/60 uppercase tracking-widest">BIS Certified</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <div className="h-1 w-1 bg-cyan-500 rounded-full animate-pulse" />
+                            <span className="text-[9px] font-black text-cyan-400/60 uppercase tracking-widest">FSSAI Approved</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

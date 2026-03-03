@@ -11,13 +11,13 @@ interface SEOProps {
 
 const SEO = ({
     title,
-    description = "Vaaraahi Waters - Pure, Premium, and Refreshing Packaged Drinking Water. Experience the clarity and quality of Vaaraahi.",
-    canonical = "https://vaaraahi.com",
+    description = "Chaamundeshwari Water - Pure, Premium, and Refreshing Packaged Drinking Water. Experience the clarity and quality of Chaamundeshwari Water.",
+    canonical = "https://chaamundeshwariwater.com",
     ogType = "website",
-    ogImage = "https://vaaraahi.com/og-image.jpg",
-    twitterHandle = "@VaaraahiWaters"
+    ogImage = "https://chaamundeshwariwater.com/og-image.jpg",
+    twitterHandle = "@ChaamundeshwariWater"
 }: SEOProps) => {
-    const siteTitle = "Vaaraahi Waters";
+    const siteTitle = "Chaamundeshwari Water";
     const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 
     return (

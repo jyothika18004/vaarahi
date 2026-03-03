@@ -1,99 +1,153 @@
-import { motion } from "framer-motion";
-import { Droplets, ArrowRight } from "lucide-react";
-import heroBottle from "../../../assets/hero-bottle.png";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Droplets, ArrowRight, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+// Asset Imports
+import img100ml from "../../../assets/100ml.png";
+import img250ml from "../../../assets/250ml.png";
+import img500ml from "../../../assets/500ml.png";
+import img1000ml from "../../../assets/1000ml.png";
+import img5000ml from "../../../assets/5000ml.png";
+import img10l from "../../../assets/10litre.png";
+
+const heroProducts = [
+  { name: "100ml Pocket", size: "100ml", image: img100ml, color: "from-cyan-500/20" },
+  { name: "250ml Classic", size: "250ml", image: img250ml, color: "from-blue-500/20" },
+  { name: "500ml Handy", size: "500ml", image: img500ml, color: "from-sky-500/20" },
+  { name: "1L Pure", size: "1000ml", image: img1000ml, color: "from-indigo-500/20" },
+  { name: "5L Family", size: "5000ml", image: img5000ml, color: "from-cyan-600/20" },
+  { name: "10L Bulk", size: "10 Litre", image: img10l, color: "from-blue-600/20" },
+];
 
 const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroProducts.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentProduct = heroProducts[currentIndex];
+
   return (
-    <section className="relative min-h-[90vh] bg-gradient-to-br from-primary-50 via-white to-primary-100 overflow-hidden flex items-center">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-primary-200/40 blur-3xl mix-blend-multiply"
-        />
-        <motion.div
-          animate={{ y: [0, 30, 0], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-primary-300/30 blur-3xl mix-blend-multiply"
-        />
+    <section className="relative min-h-screen bg-transparent overflow-hidden flex items-center pt-20">
+      {/* Dynamic Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vw] rounded-full bg-gradient-to-tr ${currentProduct.color} to-transparent blur-[150px] opacity-30`}
+          />
+        </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Text Content */}
+          {/* Left Side: Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left pt-12 lg:pt-0"
+            className="text-center lg:text-left z-20"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-primary-100 mb-6 shadow-sm"
+              className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/10 mb-8 shadow-2xl"
             >
-              <Droplets className="h-5 w-5 text-primary-500" />
-              <span className="text-primary-700 font-medium text-sm tracking-wide uppercase">100% Pure & Natural</span>
+              <Droplets className="h-5 w-5 text-cyan-400 animate-pulse" />
+              <span className="text-white font-black text-[10px] uppercase tracking-[0.4em]">Elite Hydration Series</span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6"
+              className="text-5xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] mb-8 italic uppercase"
             >
-              Taste the <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
-                Purity of Nature
+              Pure <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                Perfection
               </span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg lg:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-lg lg:text-2xl text-cyan-100/40 mb-10 max-w-xl mx-auto lg:mx-0 leading-tight font-bold italic uppercase tracking-tight"
             >
-              Experience hydration like never before. Source-pure, mineral-rich, and impeccably refreshing. Elevate your daily water intake with Varahi.
+              Experience the clinical-grade purity of Chaamundeshwari. Sourced from deep aquifers, filtered for the elite.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
-            >
-              <button className="px-8 py-4 w-full sm:w-auto bg-primary-600 hover:bg-primary-700 text-white rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-primary-500/30 flex items-center justify-center space-x-2 group">
-                <span>Shop Now</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+              <Link to="/products" className="group px-10 py-5 w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-white rounded-2xl font-black text-sm uppercase tracking-widest transition-all transform active:scale-95 shadow-[0_20px_40px_-10px_rgba(6,182,212,0.5)] flex items-center justify-center space-x-3">
+                <span>Explore Collection</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-8 py-4 w-full sm:w-auto bg-white hover:bg-gray-50 text-gray-900 rounded-full font-semibold text-lg transition-all shadow-sm border border-gray-100 hover:shadow-md">
-                Learn More
-              </button>
-            </motion.div>
+              </Link>
+            </div>
+
+            {/* Status Indicator */}
+            <div className="mt-16 flex items-center justify-center lg:justify-start space-x-4">
+              {heroProducts.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`h-1 transition-all duration-500 rounded-full ${idx === currentIndex ? 'w-12 bg-cyan-400' : 'w-4 bg-white/10 hover:bg-white/20'}`}
+                />
+              ))}
+            </div>
           </motion.div>
 
-          {/* Image Container with Floating Animation */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end items-center"
-          >
-            {/* Glossy Backdrop for Image */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary-200/40 to-white/10 rounded-full blur-2xl transform scale-90 -z-10"></div>
+          {/* Right Side: Animated Bottles */}
+          <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 200, rotate: 15, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -200, rotate: -15, scale: 0.8 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  opacity: { duration: 0.5 }
+                }}
+                className="absolute z-20"
+              >
+                <div className="relative group">
+                  {/* Glass Platform Effect */}
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-48 h-10 bg-black/40 blur-2xl rounded-full scale-150 -z-10" />
 
-            <motion.img
-              animate={{ y: [-15, 15, -15] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              src={heroBottle}
-              alt="Premium Varahi Water Bottle"
-              className="w-[85%] max-w-md lg:max-w-lg object-contain drop-shadow-2xl z-20"
-            />
-          </motion.div>
+                  <img
+                    src={currentProduct.image}
+                    alt={currentProduct.name}
+                    className="h-[400px] lg:h-[600px] w-auto object-contain drop-shadow-[0_50px_100px_rgba(0,0,0,0.6)]"
+                  />
+
+                  {/* Product Metadata Badge */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="absolute -right-8 top-1/2 bg-white/10 backdrop-blur-3xl border border-white/20 p-6 rounded-3xl shadow-2xl z-30 hidden md:block"
+                  >
+                    <p className="text-[10px] font-black text-cyan-400 uppercase tracking-[0.3em] mb-1">Purity Grade</p>
+                    <h3 className="text-2xl font-black text-white leading-tight italic">{currentProduct.name}</h3>
+                    <div className="flex items-center space-x-2 mt-4 text-white/40">
+                      <span className="text-[10px] font-bold uppercase tracking-widest">{currentProduct.size}</span>
+                      <ChevronRight className="h-3 w-3" />
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Static Glass Backdrop Ring */}
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full -z-10 hidden lg:block" />
+          </div>
 
         </div>
       </div>

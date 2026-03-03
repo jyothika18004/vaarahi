@@ -1,19 +1,29 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @theme {
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
 
-  /* Primary - Deep Navy */
-  --color-primary: #001F3F;
+  /* Primary - Vibrant Cyan */
+  --color-primary: #06b6d4;
 
-  /* Secondary - Azure */
-  --color-secondary: #0077B6;
+  /* Secondary - Deep Cyan Navy */
+  --color-secondary: #083344;
 
-  /* Accent - Gold */
-  --color-accent: #D4AF37;
+  /* Accent - Pure White for Glass */
+  --color-accent: #ffffff;
 
-  /* Background - Mist White */
-  --color-background: #F0F8FF;
+  /* Background - Elite Deep Navy */
+  --color-background: #020617;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #075985 0%, #030712 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Infinite Scroll Animation */
@@ -22,6 +32,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
