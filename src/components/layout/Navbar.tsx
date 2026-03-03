@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import logo from '../../assets/logo.png';
 import { useCart } from '../../context/CartContext';
@@ -80,11 +80,6 @@ const Navbar = () => {
 
                 {/* Right Icons */}
                 <div className="relative z-10 flex items-center space-x-3 shrink-0">
-                    <Link to="/auth" className="p-2.5 rounded-full transition-colors hover:bg-white/10">
-                        <div className="text-white drop-shadow-xl">
-                            <User className="h-5 w-5" />
-                        </div>
-                    </Link>
                     <Link to="/checkout" className="relative p-2.5 rounded-full transition-colors hover:bg-white/10">
                         <div className="text-white drop-shadow-xl">
                             <ShoppingCart className="h-5 w-5" />
