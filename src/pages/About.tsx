@@ -127,12 +127,12 @@ const About = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] border border-cyan-500/20 mb-6"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-[10px] font-bold tracking-wider border border-cyan-500/20 mb-6"
                         >
                             <Building2 className="w-3 h-3" />
                             <span>Service Network</span>
                         </motion.div>
-                        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white italic uppercase text-center">Our Presence in <span className="text-cyan-400">Hyderabad</span></h2>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white text-center">Our Presence in <span className="text-cyan-400">Hyderabad</span></h2>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-4">
@@ -145,13 +145,13 @@ const About = () => {
                                 transition={{ delay: i * 0.1 }}
                                 className="px-10 py-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-3xl hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-all duration-500 group"
                             >
-                                <span className="text-xl font-black text-white group-hover:text-cyan-400 transition-colors uppercase italic tracking-tighter">{location}</span>
+                                <span className="text-xl font-black text-white group-hover:text-cyan-400 transition-colors tracking-tighter">{location}</span>
                             </motion.div>
                         ))}
                     </div>
 
                     <div className="mt-16 text-center">
-                        <p className="text-cyan-100/40 font-bold uppercase tracking-[0.4em] text-[10px]">Rapid response delivery across the IT corridor</p>
+                        <p className="text-cyan-100/40 font-bold tracking-wider text-[10px]">Rapid response delivery across the IT corridor</p>
                     </div>
                 </div>
             </section>
@@ -173,7 +173,7 @@ const About = () => {
                                 {["Clean Aquifers", "RO Process", "Ozone Sterilized", "FSSAI Compliant"].map((label, i) => (
                                     <div key={i} className="space-y-2">
                                         <CheckCircle2 className="w-6 h-6 text-cyan-500 mx-auto" />
-                                        <span className="text-sm font-bold text-cyan-100/40 uppercase tracking-widest">{label}</span>
+                                        <span className="text-sm font-bold text-cyan-100/40 tracking-wide">{label}</span>
                                     </div>
                                 ))}
                             </div>
@@ -199,7 +199,7 @@ const About = () => {
                         >
                             <Droplets className="absolute top-10 right-10 w-12 h-12 text-cyan-500/20 group-hover:text-cyan-500/40 transition-colors" />
                             <p className="text-2xl font-semibold leading-relaxed mb-10 text-cyan-50">
-                                "Vaaraahi Waters transformed our hostel hydration—pure, punctual, and priced right!"
+                                "Chaamundeshwari Water transformed our hostel hydration—pure, punctual, and priced right!"
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xl">
@@ -207,7 +207,7 @@ const About = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-xl text-white">Hostel Warden</h4>
-                                    <span className="text-cyan-400/60 font-semibold text-sm uppercase">Kukatpally</span>
+                                    <span className="text-cyan-400/60 font-semibold text-sm">Kukatpally</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -227,7 +227,7 @@ const About = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-xl text-white">IT Manager</h4>
-                                    <span className="text-cyan-400/60 font-semibold text-sm uppercase tracking-widest">Hi-Tech City</span>
+                                    <span className="text-cyan-400/60 font-semibold text-sm tracking-wide">Hi-Tech City</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -247,7 +247,7 @@ const About = () => {
                         <Target className="w-12 h-12 text-cyan-400 mx-auto mb-8" />
                         <h2 className="text-5xl md:text-6xl font-bold mb-8">Pure water for every Hyderabadi.</h2>
                         <p className="text-xl text-cyan-100/60 mb-12 max-w-2xl mx-auto">
-                            Ongoing NABL lab testing for zero contaminants. Join the 80+ institutions already powered by Vaaraahi.
+                            Ongoing NABL lab testing for zero contaminants. Join the 80+ institutions already powered by Chaamundeshwari.
                         </p>
                         <button className="px-12 py-6 bg-cyan-500 text-white rounded-full font-bold text-xl shadow-xl shadow-cyan-500/40 hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95">
                             Partner With Us

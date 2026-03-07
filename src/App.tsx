@@ -1,12 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import ScrollToTop from './components/ScrollToTop';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Checkout from './pages/Checkout';
-import Awards from './pages/Awards';
-import News from './pages/News';
-import About from './pages/About';
+import { Home, Products, Checkout, Awards, News, About, Contact, Services, FAQ, Testimonials } from './pages';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -21,6 +16,10 @@ function App() {
           <Route path="awards" element={<Awards />} />
           <Route path="news" element={<News />} />
           <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="services" element={<Services />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="testimonials" element={<Testimonials />} />
         </Route>
       </Routes>
     </CartProvider>

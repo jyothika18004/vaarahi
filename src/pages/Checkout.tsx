@@ -26,7 +26,7 @@ const Checkout = () => {
     return (
         <div className="min-h-screen bg-transparent text-white selection:bg-cyan-500/30 pt-32 pb-24 px-6 font-primary">
             <SEO
-                title="Your Cart - Vaaraahi Waters"
+                title="Your Cart - Chaamundeshwari Water"
                 description="Review your premium water order and checkout via WhatsApp."
             />
 
@@ -36,17 +36,27 @@ const Checkout = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 uppercase italic">Your Cart</h1>
+                        <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">Your Cart</h1>
                         <div className="flex items-center space-x-3">
                             <div className="h-1 w-12 bg-cyan-500 rounded-full" />
-                            <p className="text-cyan-400 font-bold tracking-[0.4em] uppercase text-[10px] opacity-80">Elite Hydration Reservation</p>
+                            <p className="text-cyan-400 font-bold tracking-widest text-[10px] opacity-80">Elite Hydration Reservation</p>
                         </div>
                     </motion.div>
 
-                    <Link to="/products" className="group flex items-center space-x-3 text-white/40 hover:text-cyan-400 transition-all font-bold text-xs uppercase tracking-[0.2em]">
-                        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                        <span>Continue Shopping</span>
-                    </Link>
+                    <div className="flex items-center space-x-6">
+                        {cart.length > 0 && (
+                            <button
+                                onClick={() => { localStorage.removeItem('chaamundeshwari_cart'); window.location.reload(); }}
+                                className="text-red-500/40 hover:text-red-500 font-black text-[10px] tracking-widest uppercase transition-colors"
+                            >
+                                Clear Cart
+                            </button>
+                        )}
+                        <Link to="/products" className="group flex items-center space-x-3 text-white/40 hover:text-cyan-400 transition-all font-bold text-xs tracking-wider">
+                            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                            <span>Continue Shopping</span>
+                        </Link>
+                    </div>
                 </div>
 
                 {cart.length === 0 ? (
@@ -60,8 +70,8 @@ const Checkout = () => {
                                 <MessageCircle className="h-20 w-20 text-cyan-500/20" />
                             </div>
                         </div>
-                        <p className="text-3xl text-white/40 mb-10 font-light italic tracking-tight">Your cart is as clear as our water.</p>
-                        <Link to="/products" className="inline-block px-12 py-5 bg-white text-black hover:bg-cyan-400 hover:text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-2xl transition-all active:scale-95">
+                        <p className="text-3xl text-white/40 mb-10 font-light tracking-tight">Your cart is as clear as our water.</p>
+                        <Link to="/products" className="inline-block px-12 py-5 bg-white text-black hover:bg-cyan-400 hover:text-white rounded-2xl font-black text-sm shadow-2xl transition-all active:scale-95">
                             Browse Collection
                         </Link>
                     </motion.div>
@@ -84,7 +94,7 @@ const Checkout = () => {
                                     <div className="flex-grow">
                                         <h3 className="text-xl font-black text-white tracking-tight">{item.name}</h3>
                                         <div className="flex items-center space-x-3 mt-1">
-                                            <span className="text-cyan-400 font-black text-[10px] uppercase tracking-widest">{item.size}</span>
+                                            <span className="text-cyan-400 font-black text-[10px] tracking-wider">{item.size}</span>
                                             <span className="text-white/10">•</span>
                                             <span className="text-white/60 font-bold text-sm">₹{item.price}</span>
                                         </div>
@@ -126,30 +136,30 @@ const Checkout = () => {
                             >
                                 <div className="flex items-center space-x-4 mb-10">
                                     <div className="h-px flex-grow bg-white/10" />
-                                    <h3 className="text-sm font-black text-white/40 uppercase tracking-[0.4em]">Summary</h3>
+                                    <h3 className="text-sm font-black text-white/40 tracking-widest">Summary</h3>
                                     <div className="h-px flex-grow bg-white/10" />
                                 </div>
 
                                 <div className="space-y-6 mb-12">
                                     <div className="flex justify-between items-center">
-                                        <span className="text-white/40 font-bold text-sm uppercase tracking-widest">Subtotal ({totalItems} items)</span>
+                                        <span className="text-white/40 font-bold text-sm tracking-wider">Subtotal ({totalItems} items)</span>
                                         <span className="text-xl font-bold">₹{totalPrice}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-white/40 font-bold text-sm uppercase tracking-widest">Shipping</span>
-                                        <span className="text-cyan-400 font-black text-xs uppercase tracking-[0.2em] px-3 py-1 bg-cyan-500/10 rounded-full border border-cyan-500/20">Complimentary</span>
+                                        <span className="text-white/40 font-bold text-sm tracking-wider">Shipping</span>
+                                        <span className="text-cyan-400 font-black text-xs tracking-wider px-3 py-1 bg-cyan-500/10 rounded-full border border-cyan-500/20">Complimentary</span>
                                     </div>
                                     <div className="pt-8 mt-8 border-t border-white/5 flex justify-between items-end">
                                         <div>
-                                            <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em] mb-1">Total Balance</p>
-                                            <span className="text-5xl font-black text-white tracking-tighter italic">₹{totalPrice}</span>
+                                            <p className="text-[10px] font-black text-white/20 tracking-wider mb-1">Total Balance</p>
+                                            <span className="text-5xl font-black text-white tracking-tighter">₹{totalPrice}</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <button
                                     onClick={handleWhatsAppCheckout}
-                                    className="group relative w-full py-6 bg-cyan-500 hover:bg-cyan-400 text-white rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-cyan-500/20 transition-all duration-300 transform active:scale-95 flex items-center justify-center overflow-hidden"
+                                    className="group relative w-full py-6 bg-cyan-500 hover:bg-cyan-400 text-white rounded-[2rem] font-black text-sm tracking-wider shadow-2xl shadow-cyan-500/20 transition-all duration-300 transform active:scale-95 flex items-center justify-center overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                                     <MessageCircle className="h-5 w-5 mr-3 group-hover:rotate-12 transition-transform" />
@@ -157,7 +167,7 @@ const Checkout = () => {
                                 </button>
 
                                 <div className="mt-8 pt-8 border-t border-white/5 text-center">
-                                    <p className="text-[9px] text-white/20 leading-relaxed font-black uppercase tracking-[0.4em] mb-4">
+                                    <p className="text-[9px] text-white/20 leading-relaxed font-black tracking-widest mb-4">
                                         Secure Order Protocol
                                     </p>
                                     <div className="flex items-center justify-center space-x-4 opacity-20 filter grayscale">

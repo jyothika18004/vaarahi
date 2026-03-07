@@ -18,7 +18,7 @@ const Intro = () => {
                         transition={{ duration: 1, ease: "easeOut" }}
                         className="relative order-2 lg:order-1 flex justify-center"
                     >
-                        <div className="relative z-10 group max-w-sm lg:max-w-md">
+                        <div className="relative z-10 group max-w-[280px] lg:max-w-xs">
                             {/* Glass Frame */}
                             <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
                             <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
@@ -37,8 +37,8 @@ const Intro = () => {
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                 className="absolute -bottom-6 -right-6 bg-white/10 backdrop-blur-3xl border border-white/20 px-6 py-4 rounded-2xl shadow-2xl hidden md:block"
                             >
-                                <p className="text-[9px] font-black text-cyan-400 uppercase tracking-[0.4em] mb-1">Standard</p>
-                                <h3 className="text-xl font-black text-white italic leading-none">Clinical Grade</h3>
+                                <p className="text-[9px] font-bold text-cyan-400 tracking-wider mb-1">Standard</p>
+                                <h3 className="text-xl font-black text-white leading-none">Clinical Grade</h3>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -53,10 +53,10 @@ const Intro = () => {
                     >
                         <div className="flex items-center space-x-4 mb-6">
                             <div className="h-px w-10 bg-cyan-500" />
-                            <span className="text-cyan-400 font-black text-[9px] uppercase tracking-[0.5em]">The Essence of Chaamundeshwari</span>
+                            <span className="text-cyan-400 font-bold text-[9px] tracking-widest">The Essence of Chaamundeshwari</span>
                         </div>
 
-                        <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-8 italic uppercase">
+                        <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-8">
                             More Than Just Water.<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                                 A Promise of Purity.
@@ -65,13 +65,13 @@ const Intro = () => {
 
                         <div className="space-y-4 text-cyan-100/60 font-medium leading-tight">
                             <p className="text-sm lg:text-base">
-                                At <span className="text-white font-black italic">Chaamundeshwari Water</span>, we believe drinking water is not just a daily necessity — it is a matter of health, trust, and responsibility. Every bottle we produce represents our commitment to delivering safe, mineral-balanced, and hygienically processed drinking water to families, businesses, and communities.
+                                At <span className="text-white font-black">Chaamundeshwari Water</span>, we believe drinking water is not just a daily necessity — it is a matter of health, trust, and responsibility. Every bottle we produce represents our commitment to delivering safe, mineral-balanced, and hygienically processed drinking water to families, businesses, and communities.
                             </p>
                             <p className="text-sm lg:text-base">
                                 From carefully sourced raw water to advanced purification and secure packaging, our processes are designed with precision and integrity. We do not simply manufacture packaged water; we engineer purity using technology, quality standards, and continuous monitoring systems.
                             </p>
                             <div className="pt-4 border-t border-white/5">
-                                <p className="text-white font-black italic text-lg leading-snug">
+                                <p className="text-white font-black text-lg leading-snug">
                                     Our goal is simple — to ensure that every sip you take is refreshing, reliable, and safe.
                                 </p>
                             </div>
@@ -84,7 +84,7 @@ const Intro = () => {
                             transition={{ delay: 0.5 }}
                             className="mt-8 pt-6 border-t border-white/5"
                         >
-                            <p className="text-[10px] font-black text-cyan-400 uppercase tracking-[0.4em]">
+                            <p className="text-[10px] font-bold text-cyan-400 tracking-wider">
                                 Trusted by 10,000+ Premium Clients
                             </p>
                         </motion.div>

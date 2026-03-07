@@ -1,6 +1,10 @@
 import Hero from "../components/layout/sections/Hero";
 import Intro from "../components/layout/sections/Intro";
 import Features from "../components/layout/sections/Features";
+import ServicesSection from "../components/layout/sections/ServicesSection";
+import CoolingSection from "../components/layout/sections/CoolingSection";
+import TestimonialSection from "../components/layout/sections/TestimonialSection";
+import FAQSection from "../components/layout/sections/FAQSection";
 import SEO from '../components/common/SEO';
 
 const Home = () => {
@@ -13,6 +17,10 @@ const Home = () => {
             <Hero />
             <Intro />
             <Features />
+            <ServicesSection />
+            <CoolingSection />
+            <TestimonialSection />
+            <FAQSection />
         </div>
     );
 };

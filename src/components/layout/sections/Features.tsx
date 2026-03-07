@@ -56,7 +56,7 @@ const Features = () => {
                         className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-2xl px-5 py-2.5 rounded-full border border-white/10 mb-6"
                     >
                         <div className="h-2 w-2 bg-cyan-500 rounded-full animate-pulse" />
-                        <span className="text-white font-black text-[10px] uppercase tracking-[0.4em]">Quality Benchmark</span>
+                        <span className="text-white font-bold text-[10px] tracking-wider">Quality Benchmark</span>
                     </motion.div>
 
                     <motion.h2
@@ -64,7 +64,7 @@ const Features = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl lg:text-6xl font-black text-white tracking-tighter italic uppercase mb-6"
+                        className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-6"
                     >
                         Engineering <br className="md:hidden" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
@@ -100,11 +100,11 @@ const Features = () => {
                                     {feature.icon}
                                 </div>
 
-                                <h3 className="text-xl font-black text-white italic uppercase tracking-tight mb-4 group-hover:text-cyan-400 transition-colors">
+                                <h3 className="text-xl font-black text-white tracking-tight mb-4 group-hover:text-cyan-400 transition-colors">
                                     {feature.title}
                                 </h3>
 
-                                <p className="text-cyan-100/40 text-sm font-medium leading-relaxed uppercase tracking-tighter">
+                                <p className="text-cyan-100/40 text-sm font-medium leading-relaxed">
                                     {feature.desc}
                                 </p>
 
